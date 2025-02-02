@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        caveat: ["var(--font-caveat)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
