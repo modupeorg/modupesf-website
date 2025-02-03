@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        caveat: ["var(--font-caveat)"],
+        caros: ["var(--font-caros)"],
       },
       colors: {
         background: "var(--background)",
