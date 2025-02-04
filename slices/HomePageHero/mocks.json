@@ -46,6 +46,16 @@
 						]
 					}
 				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "pour",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "FieldContent",
+				"value": "fifteen",
+				"type": "Text"
 			}
 		},
 		"items": []

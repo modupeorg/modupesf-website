@@ -97,6 +97,26 @@ export interface HomePageHeroSliceDefaultPrimaryCarouselItem {
  */
 export interface HomePageHeroSliceDefaultPrimary {
   /**
+   * title field in *HomePageHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_page_hero.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *HomePageHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_page_hero.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
    * carousel field in *HomePageHero → Default → Primary*
    *
    * - **Field Type**: Group
