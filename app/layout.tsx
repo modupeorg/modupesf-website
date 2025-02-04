@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import localFont from "next/font/local";
+import "./globals.css";
 
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { MenuProvider } from "@/components/Nav/MenuContext";
 
 const caros = localFont({
   src: [
@@ -48,16 +49,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${caros.variable} antialiased`}>
-        <body
-          className={`${caros.variable} antialiased min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-white text-black`}
-          suppressHydrationWarning={true}
-        >
+    <html lang="en" className={`${caros.variable}`}>
+      <body
+      className="font-caros min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-[#f5f7fb] tex-black"
+        suppressHydrationWarning={true}
+      >
+        <MenuProvider>
           <Navbar />
           <main className="flex-grow-[1]">{children}</main>
           <Footer />
-        </body>
+          <Footer />
+          <Footer />
+          <Footer />
+          <Footer />
+          <Footer />
+          <Footer />
+          <Footer />
+        </MenuProvider>
       </body>
     </html>
   );
