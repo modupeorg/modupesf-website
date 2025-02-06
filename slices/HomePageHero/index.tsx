@@ -49,7 +49,7 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
               {slice.primary.content}
             </p>
           </div>
-          <TexCircleAnimation />
+          <TexCircleAnimation text="Join us in making a lasting legacy" />
         </div>
         <div className="relative overflow-hidden h-[35dvh] md:h-[65dvh] lg:h-[80dvh] rounded-[1.25rem] rounded-br-[0]">
           <div className="w-full h-full rounded-[1.25rem] overflow-hidden">

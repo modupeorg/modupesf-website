@@ -3,5 +3,6 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  form: dynamic(() => import("./Form")),
   home_page_hero: dynamic(() => import("./HomePageHero")),
 };

@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { Icons } from "./Icons";
 
-export default function TextCircleAnimation() {
+type TextCircleAnimationProps = {
+  text: string;
+};
+
+export default function TextCircleAnimation({ text }: TextCircleAnimationProps) {
   return (
     <div className="hidden lg:block overflow-hidden">
       <div className="relative">
@@ -22,7 +26,7 @@ export default function TextCircleAnimation() {
           <circle cx="150" cy="150" r="90" fill="#1f443e" />
           <text fill="#fffeff">
             <textPath xlinkHref="#circlePath" className="text-xl mr-2">
-              Join us in making a lasting legacy
+              {text}
             </textPath>
             <textPath
               xlinkHref="#circlePath"
@@ -40,7 +44,6 @@ export default function TextCircleAnimation() {
              flex items-center justify-center"
         >
           <Icons.RightArrow className="w-8 h-8 transform -rotate-45" />
-          {/* <Icons.Star className="w-8 h-8" /> */}
         </div>
       </div>
     </div>

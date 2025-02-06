@@ -10,13 +10,27 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@notionhq/client": "^2.2.15",
     "@prismicio/client": "^7.15.1",
     "@prismicio/next": "^2.0.0",
     "@prismicio/react": "^3.0.0",
+    "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-slot": "^1.1.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "googleapis": "^144.0.0",
+    "lucide": "^0.474.0",
+    "lucide-react": "^0.474.0",
     "motion": "^12.0.6",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-confetti": "^6.2.2",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

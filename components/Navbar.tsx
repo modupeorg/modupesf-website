@@ -11,21 +11,42 @@ export const Navbar = () => {
     <header>
       <nav className="fixed top-0 left-0 w-full h-16 bg-green z-[99]">
         <div className="container flex items-center justify-between h-full px-4">
-          <h1 className="text-2xl font-bold text-white">Modupe</h1>
-          <button className="md:hidden" onClick={toggleMenu}>
+          <Link href="/" className="text-2xl font-bold text-white hover:opacity-90 transition-opacity">
+            Modupe
+          </Link>
+          <button 
+            className="md:hidden p-2 hover:bg-white/10 rounded-full transition-colors" 
+            onClick={toggleMenu}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
             {isOpen ? (
-              <Icons.Close className="w-12 text-white" />
+              <Icons.Close className="w-8 h-8 text-white" />
             ) : (
-              <Icons.Menu className="w-12 text-white" />
+              <Icons.Menu className="w-8 h-8 text-white" />
             )}
           </button>
-          <div className="hidden md:flex items-center gap-4 text-white">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
+          <div className="hidden md:flex items-center gap-6 text-white">
+            <Link 
+              href="/" 
+              className="hover:text-white/80 transition-colors"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/scholarships" 
+              className="hover:text-white/80 transition-colors"
+            >
+              Scholarships
+            </Link>
+            <Link 
+              href="/legal-services" 
+              className="hover:text-white/80 transition-colors"
+            >
+              Legal Services
+            </Link>
           </div>
         </div>
-      <hr className="h-[1px] border-white/30" />
+        <hr className="h-[1px] border-white/30" />
       </nav>
       {isOpen && <MobileNavMenu />}
     </header>
