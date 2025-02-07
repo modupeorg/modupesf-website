@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "about_section": {
+              "type": "SharedSlice"
+            },
+            "icon_text_image_section": {
+              "type": "SharedSlice"
+            },
             "home_page_hero": {
               "type": "SharedSlice"
             }

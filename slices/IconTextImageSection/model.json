@@ -1,0 +1,16 @@
+{
+  "id": "icon_text_image_section",
+  "type": "SharedSlice",
+  "name": "IconTextImageSection",
+  "description": "IconTextImageSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}
