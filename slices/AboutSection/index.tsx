@@ -6,6 +6,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { staticBlurDataUrl } from "@/lib/staticBlur";
 import { Icons } from "@/components/Icons";
+import { BadgeTitle } from "@/components/Badge";
 
 /**
  * Props for `AboutSection`.
@@ -35,17 +36,15 @@ const AboutSection: FC<AboutSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-24 min-h-[100dvh]"
+      className="py-24"
     >
       <div className="container">
-        <div className="w-[fit-content] flex items-center bg-lime px-4 py-1 rounded-full space-x-2">
-          <div className="w-[6px] h-[6px] bg-black rounded-[50%]"></div>
-
-          <h3 className="  text-xl  font-bold">{slice.primary.title}</h3>
-        </div>
+        <BadgeTitle text={slice.primary.title} />
 
         <div className="max-w-[46rem] py-8">
-          <p className="text-lg">{slice.primary.description}</p>
+          <p className="text-lg hyphens-auto text-justify" lang="en">
+            {slice.primary.description}
+          </p>
         </div>
 
         {/* Carousel */}
@@ -94,7 +93,7 @@ const AboutSection: FC<AboutSectionProps> = ({ slice }) => {
               <h3 className="text-2xl md:text-4xl xl:text-7xl font-bold mb-4">
                 {slice.primary.carousel[currentIndex].image_title}
               </h3>
-              <p className="text-lg">
+              <p className="text-lg hyphens-auto text-justify" lang="en">
                 {slice.primary.carousel[currentIndex].content}
               </p>
             </div>

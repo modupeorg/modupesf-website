@@ -10,6 +10,7 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@arcjet/next": "^1.0.0-beta.2",
     "@hookform/resolvers": "^3.10.0",
     "@notionhq/client": "^2.2.15",
     "@prismicio/client": "^7.15.1",
@@ -17,6 +18,7 @@
     "@prismicio/react": "^3.0.0",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "googleapis": "^144.0.0",
@@ -28,6 +30,7 @@
     "react-confetti": "^6.2.2",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
+    "sonner": "^1.7.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1"

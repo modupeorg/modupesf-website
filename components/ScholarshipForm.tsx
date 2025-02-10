@@ -1,7 +1,7 @@
 "use client";
 import { ActionResponse } from "@/lib/types";
-import { useActionState } from "react";
-// import { Button } from "./ui/button";
+import { useActionState, useEffect } from "react";
+import { toast } from "sonner";
 import { submitScholarshipForm } from "@/app/scholarships/actions";
 import { ArrowRight, CircleCheckBig } from "lucide-react";
 import Confetti from "react-confetti";
@@ -17,6 +17,28 @@ export function ScholarshipForm() {
     submitScholarshipForm,
     initialState
   );
+
+  useEffect(() => {
+    if (state.success) {
+      toast.success("Your application was successful", {
+        classNames: {
+          toast: "bg-white text-black border-green shadow-none",
+          icon: "text-green",
+        },
+        duration: 3000,
+        position: "bottom-right",
+      });
+    } else if (state.errors) {
+      toast.error("Something went wrong", {
+        classNames: {
+          toast: "bg-white text-black border-green shadow-none",
+          actionButton: "bg-red-500",
+          title: "text-red-500",
+          icon: "text-red-500",
+        },
+      });
+    }
+  });
 
   if (state.success) {
     return (

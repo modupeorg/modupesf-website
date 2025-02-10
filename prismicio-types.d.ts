@@ -5,8 +5,10 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | FaqsSlice
+  | DirectorsSectionSlice
+  | MemorabiliaSlice
   | AboutSectionSlice
-  | IconTextImageSectionSlice
   | HomePageHeroSlice;
 
 /**
@@ -249,6 +251,195 @@ export type AboutSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *DirectorsSection → Default → Primary → directors*
+ */
+export interface DirectorsSectionSliceDefaultPrimaryDirectorsItem {
+  /**
+   * image field in *DirectorsSection → Default → Primary → directors*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.directors[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * link field in *DirectorsSection → Default → Primary → directors*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.directors[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * name field in *DirectorsSection → Default → Primary → directors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.directors[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *DirectorsSection → Default → Primary*
+ */
+export interface DirectorsSectionSliceDefaultPrimary {
+  /**
+   * title field in *DirectorsSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *DirectorsSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * directors field in *DirectorsSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.directors[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  directors: prismic.GroupField<
+    Simplify<DirectorsSectionSliceDefaultPrimaryDirectorsItem>
+  >;
+}
+
+/**
+ * Default variation for DirectorsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DirectorsSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DirectorsSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DirectorsSection*
+ */
+type DirectorsSectionSliceVariation = DirectorsSectionSliceDefault;
+
+/**
+ * DirectorsSection Shared Slice
+ *
+ * - **API ID**: `directors_section`
+ * - **Description**: DirectorsSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DirectorsSectionSlice = prismic.SharedSlice<
+  "directors_section",
+  DirectorsSectionSliceVariation
+>;
+
+/**
+ * Item in *Faqs → Default → Primary → faqs*
+ */
+export interface FaqsSliceDefaultPrimaryFaqsItem {
+  /**
+   * title field in *Faqs → Default → Primary → faqs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.faqs[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *Faqs → Default → Primary → faqs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.faqs[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Faqs → Default → Primary*
+ */
+export interface FaqsSliceDefaultPrimary {
+  /**
+   * title field in *Faqs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *Faqs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * faqs field in *Faqs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.faqs[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  faqs: prismic.GroupField<Simplify<FaqsSliceDefaultPrimaryFaqsItem>>;
+}
+
+/**
+ * Default variation for Faqs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Faqs*
+ */
+type FaqsSliceVariation = FaqsSliceDefault;
+
+/**
+ * Faqs Shared Slice
+ *
+ * - **API ID**: `faqs`
+ * - **Description**: Faqs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSlice = prismic.SharedSlice<"faqs", FaqsSliceVariation>;
+
+/**
  * Primary content in *Form → Default → Primary*
  */
 export interface FormSliceDefaultPrimary {
@@ -393,33 +584,98 @@ export type HomePageHeroSlice = prismic.SharedSlice<
 >;
 
 /**
- * Default variation for IconTextImageSection Slice
+ * Primary content in *Memorabilia → Default → Primary*
+ */
+export interface MemorabiliaSliceDefaultPrimary {
+  /**
+   * title field in *Memorabilia → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: memorabilia.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *Memorabilia → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: memorabilia.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * subtitle1 field in *Memorabilia → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: memorabilia.default.primary.subtitle1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle1: prismic.KeyTextField;
+
+  /**
+   * biography field in *Memorabilia → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: memorabilia.default.primary.biography
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  biography: prismic.KeyTextField;
+
+  /**
+   * subtitle2 field in *Memorabilia → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: memorabilia.default.primary.subtitle2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subtitle2: prismic.KeyTextField;
+
+  /**
+   * life of service field in *Memorabilia → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: memorabilia.default.primary.life_of_service
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  life_of_service: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Memorabilia Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type IconTextImageSectionSliceDefault = prismic.SharedSliceVariation<
+export type MemorabiliaSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<MemorabiliaSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *IconTextImageSection*
+ * Slice variation for *Memorabilia*
  */
-type IconTextImageSectionSliceVariation = IconTextImageSectionSliceDefault;
+type MemorabiliaSliceVariation = MemorabiliaSliceDefault;
 
 /**
- * IconTextImageSection Shared Slice
+ * Memorabilia Shared Slice
  *
- * - **API ID**: `icon_text_image_section`
- * - **Description**: IconTextImageSection
+ * - **API ID**: `memorabilia`
+ * - **Description**: Memorabilia
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type IconTextImageSectionSlice = prismic.SharedSlice<
-  "icon_text_image_section",
-  IconTextImageSectionSliceVariation
+export type MemorabiliaSlice = prismic.SharedSlice<
+  "memorabilia",
+  MemorabiliaSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -455,6 +711,16 @@ declare module "@prismicio/client" {
       AboutSectionSliceDefaultPrimary,
       AboutSectionSliceVariation,
       AboutSectionSliceDefault,
+      DirectorsSectionSlice,
+      DirectorsSectionSliceDefaultPrimaryDirectorsItem,
+      DirectorsSectionSliceDefaultPrimary,
+      DirectorsSectionSliceVariation,
+      DirectorsSectionSliceDefault,
+      FaqsSlice,
+      FaqsSliceDefaultPrimaryFaqsItem,
+      FaqsSliceDefaultPrimary,
+      FaqsSliceVariation,
+      FaqsSliceDefault,
       FormSlice,
       FormSliceDefaultPrimary,
       FormSliceVariation,
@@ -464,9 +730,10 @@ declare module "@prismicio/client" {
       HomePageHeroSliceDefaultPrimary,
       HomePageHeroSliceVariation,
       HomePageHeroSliceDefault,
-      IconTextImageSectionSlice,
-      IconTextImageSectionSliceVariation,
-      IconTextImageSectionSliceDefault,
+      MemorabiliaSlice,
+      MemorabiliaSliceDefaultPrimary,
+      MemorabiliaSliceVariation,
+      MemorabiliaSliceDefault,
     };
   }
 }

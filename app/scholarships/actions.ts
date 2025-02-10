@@ -1,6 +1,7 @@
 "use server";
 
 import { ActionResponse, ScholarshipFormData } from "@/lib/types";
+import arcjet, { detectBot, fixedWindow, request, shield } from "@arcjet/next";
 import { google, sheets_v4 } from "googleapis";
 import { z } from "zod";
 import { googleAuth } from "../googleAuth";
@@ -25,6 +26,24 @@ const ERROR_MESSAGES = {
   SUCCESS: "Scholarship application successfully submitted!",
 } as const;
 
+const aj = arcjet({
+  key: process.env.ARCJET_KEY!,
+  rules: [
+    shield({ mode: "LIVE" }),
+
+    detectBot({
+      mode: "LIVE",
+      allow: [],
+    }),
+
+    fixedWindow({
+      mode: "LIVE",
+      window: "1m",
+      max: 5,
+    }),
+  ],
+});
+
 export async function submitScholarshipForm(
   prevState: ActionResponse | null,
   formData: FormData
@@ -37,6 +56,25 @@ export async function submitScholarshipForm(
   }
 
   try {
+    const req = await request();
+    const decision = await aj.protect(req);
+
+    if (decision.isDenied()) {
+      if (decision.reason.isRateLimit()) {
+        return createErrorResponse(
+          "Too many registration attempts. Please try again later"
+        );
+      }
+
+      if (decision.reason.isBot()) {
+        return createErrorResponse(
+          "This request has been identified as automated. If this is a mistake, please an email."
+        );
+      }
+
+      return createErrorResponse("Request denied for security reasons");
+    }
+
     const rawData = extractFormData(formData);
     const validatedData = await validateFormData(rawData);
 

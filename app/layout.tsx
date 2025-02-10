@@ -1,10 +1,11 @@
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
 import { Footer } from "@/components/Footer";
-import { Navbar } from "@/components/Navbar";
 import { MenuProvider } from "@/components/Nav/MenuContext";
+import { Navbar } from "@/components/Navbar";
 
 const caros = localFont({
   src: [
@@ -51,20 +52,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${caros.variable}`}>
       <body
-      className="font-caros min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-[#f5f7fb] tex-black"
+        className="font-caros min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-[#f5f7fb] tex-black"
         suppressHydrationWarning={true}
       >
         <MenuProvider>
           <Navbar />
           <main className="flex-grow-[1]">{children}</main>
           <Footer />
-          <Footer />
-          <Footer />
-          <Footer />
-          <Footer />
-          <Footer />
-          <Footer />
-          <Footer />
+          <Toaster />
         </MenuProvider>
       </body>
     </html>
