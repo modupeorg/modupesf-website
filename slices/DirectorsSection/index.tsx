@@ -26,7 +26,15 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
       className="py-12 md:py-24"
     >
       <div className="container">
-        <BadgeTitle text={slice.primary.title} />
+        <div className="flex flex-col items-center justify-center">
+          <BadgeTitle text={slice.primary.title} />
+
+          <div className="max-w-[46rem] pt-8">
+            <p className="text-lg hyphens-auto text-justify md:text-center" lang="en">
+              {slice.primary.description}
+            </p>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 gap-y-8 py-8">
           {/* Image */}
@@ -56,7 +64,7 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
               </div>
 
               <div className="py-4">
-                <p className="text-center text-lg font-medium">{item.name}</p>
+                <p className="text-center text-xl font-bold">{item.name}</p>
               </div>
             </div>
           ))}

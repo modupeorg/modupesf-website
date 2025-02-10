@@ -38,6 +38,11 @@
 						]
 					}
 				]
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "term",
+				"type": "Text"
 			}
 		},
 		"items": []
