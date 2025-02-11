@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import { createClient } from "@/prismicio";
 
-export const Footer = () => {
+import { FooterClient } from "./FooterClient";
+
+export const Footer = async () => {
+  const client = createClient();
+  const settings = await client.getSingle("footer");
+  const { title, description, links, contact, copyright } = settings.data;
+
   return (
-    <div className='bg-green'>
-      <p className='7xl text-white'>tdr</p>
-    </div>
-  )
-}
+    <FooterClient
+      title={title}
+      description={description}
+      links={links}
+      contact={contact}
+      copyright={copyright}
+    />
+  );
+};

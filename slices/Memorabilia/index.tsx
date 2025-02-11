@@ -22,7 +22,7 @@ const Memorabilia: FC<MemorabiliaProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-12 md:py-24"
+      className="py-8 md:py-16"
     >
       <div className="container">
         <BadgeTitle text={slice.primary.title} />

@@ -27,7 +27,7 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-24"
+      className="py-8 md:pt-16 md:pb-32"
     >
       <div className="container">
         <BadgeTitle text={slice.primary.title} />
@@ -35,15 +35,15 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
         <div className="flex flex-col lg:flex-row gap-x-8 gap-y-4">
           {/* text */}
           <div className="w-full lg:w-[40%]">
-            <div className="text-center max-w-[46rem] pt-8">
-              <p className="text-4xl md:text-6xl font-medium" lang="en">
+            <div className="max-w-xl mx-auto md:text-center lg:text-left py-8">
+              <p className="text-4xl 2xl:text-6xl font-medium" lang="en">
                 {slice.primary.description}
               </p>
             </div>
           </div>
 
           <div className="w-full lg:w-[60%]">
-            <div className="flex flex-col gap-6 max-w-xl mx-auto">
+            <div className="flex flex-col gap-6 max-w-xl mx-auto md:py-8">
               {slice.primary.faqs.map((item, index) => (
                 <div
                   key={index}
@@ -53,10 +53,12 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
                     className="flex justify-between items-center cursor-pointer"
                     onClick={() => handleClick(index)}
                   >
-                    <h3 className="font-semibold">{item.title}</h3>
+                    <h3 className="text-[1.25rem] font-semibold">
+                      {item.title}
+                    </h3>
                     <Plus
                       className={twMerge(
-                        "text-green flex-shrink-0 transition duration-300",
+                        "bg-lime p-1 rounded-full text-green flex-shrink-0 transition duration-300",
                         selectedIndex === index && "rotate-45"
                       )}
                     />

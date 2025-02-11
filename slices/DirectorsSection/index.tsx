@@ -23,7 +23,7 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-12 md:py-24"
+      className="py-8 md:py-16"
     >
       <div className="container">
         <div className="flex flex-col items-center justify-center">
@@ -36,7 +36,7 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 gap-y-8 py-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 gap-y-8 pt-8">
           {/* Image */}
           {slice.primary.directors.map((item, index) => (
             <div key={index}>
