@@ -1,16 +1,9 @@
 "use client";
 
-import { GroupField, KeyTextField, LinkField } from "@prismicio/client";
+import { GroupField, KeyTextField } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
-import {
-  ArrowUpRight,
-  LocateIcon,
-  Mail,
-  MessageCircle,
-  PhoneCall,
-} from "lucide-react";
+import { LocateIcon, Mail, PhoneCall } from "lucide-react";
 import { JSX } from "react";
-// import { Icons } from "./icons/Icons";
 import { FooterDocumentDataContactItem, Simplify } from "@/prismicio-types";
 import { BackToTopBtn } from "./BackToTopBtn";
 type FooterProps = {
@@ -37,7 +30,7 @@ export const FooterClient = (props: FooterProps): JSX.Element => {
       <div className="container">
         <div className="py-24 md:py-32 lg:py-40">
           <div className="flex items-center gap-3"></div>
-          <div className="grid lg:grid-cols-3 lg:items-center gap-4 lg:gap-16">
+          <div className="grid lg:grid-cols-3 lg:items-center gap-4 xl:gap-16">
             {/* Logo and Description */}
             <div className="flex flex-col gap-y-2">
               <h1 className="capitalize text-lime text-2xl">{title}</h1>
@@ -58,7 +51,7 @@ export const FooterClient = (props: FooterProps): JSX.Element => {
                   <div key={index} className="relative">
                     <PrismicNextLink
                       field={item.link_url}
-                      className="inline-flex uppercase text-lg h-auto px-0 border-transparent after:content-[''] after:transition-all after:duration-500 after:h-px after:w-0 after:absolute after:top-full after:bg-lime hover:after:w-[8%] md:hover:after:w-full focus:outline-none"
+                      className="inline-flex capitalize text-lg h-auto px-0 border-transparent after:content-[''] after:transition-all after:duration-500 after:h-px after:w-0 after:absolute after:top-full after:bg-lime hover:after:w-[8%] md:hover:after:w-full focus:outline-none"
                     >
                       {item.link_text}
                     </PrismicNextLink>

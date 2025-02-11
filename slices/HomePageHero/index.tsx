@@ -45,7 +45,7 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
             <h1 className="text-3xl md:text-4xl font-bold text-white">
               {slice.primary.title}
             </h1>
-            <p className="text-white text-[1rem] text-left lg:text-justify">
+            <p className="text-white text-[1rem] text-justify hyphens-auto" lang="en">
               {slice.primary.content}
             </p>
           </div>

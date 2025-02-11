@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${caros.variable}`}>
       <body
-        className="font-caros min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-[#f5f7fb] tex-black"
+        className="font-caros min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-[#f5f7fb] text-black"
         suppressHydrationWarning={true}
       >
         <MenuProvider>
