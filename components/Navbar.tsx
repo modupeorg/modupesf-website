@@ -31,7 +31,7 @@ export const Navbar = () => {
           </button>
           <div className="hidden md:flex items-center gap-6 text-white">
             <Link href="/" className="hover:text-white/80 transition-colors">
-              Home
+              Who we are
             </Link>
             <Link
               href="/scholarships"

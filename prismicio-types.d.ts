@@ -208,6 +208,82 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
+type LegalServicesDocumentDataSlicesSlice = LegalProcessSlice;
+
+/**
+ * Content for Legal Services documents
+ */
+interface LegalServicesDocumentData {
+  /**
+   * Slice Zone field in *Legal Services*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_services.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LegalServicesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Legal Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: legal_services.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Legal Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: legal_services.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Legal Services*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_services.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * keywords field in *Legal Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_services.keywords
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  keywords: prismic.KeyTextField;
+}
+
+/**
+ * Legal Services document from Prismic
+ *
+ * - **API ID**: `legal_services`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LegalServicesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<LegalServicesDocumentData>,
+    "legal_services",
+    Lang
+  >;
+
 type ScholarshipDocumentDataSlicesSlice = FormSlice;
 
 /**
@@ -287,6 +363,7 @@ export type ScholarshipDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | FooterDocument
   | HomeDocument
+  | LegalServicesDocument
   | ScholarshipDocument;
 
 /**
@@ -735,6 +812,118 @@ export type HomePageHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *LegalProcess → Default → Primary → process*
+ */
+export interface LegalProcessSliceDefaultPrimaryProcessItem {
+  /**
+   * number field in *LegalProcess → Default → Primary → process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.process[].number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  number: prismic.KeyTextField;
+
+  /**
+   * title field in *LegalProcess → Default → Primary → process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.process[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *LegalProcess → Default → Primary → process*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.process[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *LegalProcess → Default → Primary*
+ */
+export interface LegalProcessSliceDefaultPrimary {
+  /**
+   * title field in *LegalProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *LegalProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * process field in *LegalProcess → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.process[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  process: prismic.GroupField<
+    Simplify<LegalProcessSliceDefaultPrimaryProcessItem>
+  >;
+
+  /**
+   * image field in *LegalProcess → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for LegalProcess Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LegalProcessSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LegalProcessSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LegalProcess*
+ */
+type LegalProcessSliceVariation = LegalProcessSliceDefault;
+
+/**
+ * LegalProcess Shared Slice
+ *
+ * - **API ID**: `legal_process`
+ * - **Description**: LegalProcess
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LegalProcessSlice = prismic.SharedSlice<
+  "legal_process",
+  LegalProcessSliceVariation
+>;
+
+/**
  * Primary content in *Memorabilia → Default → Primary*
  */
 export interface MemorabiliaSliceDefaultPrimary {
@@ -857,6 +1046,9 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      LegalServicesDocument,
+      LegalServicesDocumentData,
+      LegalServicesDocumentDataSlicesSlice,
       ScholarshipDocument,
       ScholarshipDocumentData,
       ScholarshipDocumentDataSlicesSlice,
@@ -885,6 +1077,11 @@ declare module "@prismicio/client" {
       HomePageHeroSliceDefaultPrimary,
       HomePageHeroSliceVariation,
       HomePageHeroSliceDefault,
+      LegalProcessSlice,
+      LegalProcessSliceDefaultPrimaryProcessItem,
+      LegalProcessSliceDefaultPrimary,
+      LegalProcessSliceVariation,
+      LegalProcessSliceDefault,
       MemorabiliaSlice,
       MemorabiliaSliceDefaultPrimary,
       MemorabiliaSliceVariation,

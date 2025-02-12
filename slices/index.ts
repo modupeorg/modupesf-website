@@ -8,5 +8,6 @@ export const components = {
   faqs: dynamic(() => import("./Faqs")),
   form: dynamic(() => import("./Form")),
   home_page_hero: dynamic(() => import("./HomePageHero")),
+  legal_process: dynamic(() => import("./LegalProcess")),
   memorabilia: dynamic(() => import("./Memorabilia")),
 };

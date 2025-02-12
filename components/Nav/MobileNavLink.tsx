@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import Link from "next/link";
-import React from "react";
+import { useMenu } from "./MenuContext";
 
 type MobileNavLinkProps = {
   href: string;
@@ -22,12 +22,16 @@ const mobileLinkVariants = {
 };
 
 export function MobileNavLink({ href, title }: MobileNavLinkProps) {
+  const { toggleMenu } = useMenu();
+
   return (
     <motion.div
       variants={mobileLinkVariants}
       className="text-white text-4xl uppercase"
     >
-      <Link href={href}>{title}</Link>
+      <Link href={href} onClick={toggleMenu}>
+        {title}
+      </Link>
     </motion.div>
   );
 }
