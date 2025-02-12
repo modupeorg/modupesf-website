@@ -1,11 +1,11 @@
 "use client";
 
-import { Icons } from "@/components/Icons";
 import TexCircleAnimation from "@/components/TextCircleAnimation";
 import { staticBlurDataUrl } from "@/lib/staticBlur";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { FC, useCallback, useState } from "react";
 
 /**
@@ -80,7 +80,7 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
                 className="iconBox bg-lime"
                 onClick={prevSlide}
               >
-                <Icons.LeftArrow />
+                <ArrowLeft />
               </button>
 
               <button
@@ -88,7 +88,7 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
                 className="iconBox bg-lime "
                 onClick={nextSlide}
               >
-                <Icons.RightArrow />
+                <ArrowRight />
               </button>
             </div>
           </div>

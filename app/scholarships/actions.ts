@@ -10,15 +10,23 @@ import { googleAuth } from "../googleAuth";
 const scholarshipSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required"),
   lastName: z.string().trim().min(1, "Last name is required"),
+  dob: z.string().trim().min(1, "Date of Birth is required"),
   email: z.string().trim().email("Invalid email format"),
   phoneNumber: z
     .string()
     .trim()
     .regex(/^\+?[\d\s-()]+$/, "Invalid phone number format"),
+  homeAddress: z.string().trim().min(1, "Home Address is required"),
+  stateOfResidence: z.string().trim().min(1, "State of Residence is required"),
+  currentUniversity: z.string().trim().min(1, "Current University is required"),
+  levelOfStudy: z.string().trim().min(1, "Level of Study is required"),
+  fieldOfStudy: z.string().trim().min(1, "Field of Study is required"),
+  graduationYear: z.string().trim().min(1, "Graduation Year is required"),
+  cgpa: z.string().trim().min(1, "CGPA is required"),
 });
 
 // Constants to avoid magic strings
-const SHEET_RANGE = "Sheet1!A:D";
+const SHEET_RANGE = "Sheet1!A:L";
 const ERROR_MESSAGES = {
   GOOGLE_CONNECTION: "Unable to establish connection with Google services",
   VALIDATION_ERROR: "Please correct the form errors",
@@ -107,8 +115,18 @@ function extractFormData(formData: FormData): ScholarshipFormData {
   return {
     firstName: (formData.get("firstName") as string)?.trim() ?? "",
     lastName: (formData.get("lastName") as string)?.trim() ?? "",
+    dob: (formData.get("dob") as string)?.trim() ?? "",
     email: (formData.get("email") as string)?.trim() ?? "",
     phoneNumber: (formData.get("phoneNumber") as string)?.trim() ?? "",
+    homeAddress: (formData.get("homeAddress") as string)?.trim() ?? "",
+    stateOfResidence:
+      (formData.get("stateOfResidence") as string)?.trim() ?? "",
+    currentUniversity:
+      (formData.get("currentUniversity") as string)?.trim() ?? "",
+    levelOfStudy: (formData.get("levelOfStudy") as string)?.trim() ?? "",
+    fieldOfStudy: (formData.get("fieldOfStudy") as string)?.trim() ?? "",
+    graduationYear: (formData.get("graduationYear") as string)?.trim() ?? "",
+    cgpa: (formData.get("cgpa") as string)?.trim() ?? "",
   };
 }
 
@@ -152,7 +170,22 @@ async function appendToGoogleSheets(
       range: SHEET_RANGE,
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[data.firstName, data.lastName, data.email, data.phoneNumber]],
+        values: [
+          [
+            data.firstName,
+            data.lastName,
+            data.dob,
+            data.email,
+            data.phoneNumber,
+            data.homeAddress,
+            data.stateOfResidence,
+            data.currentUniversity,
+            data.levelOfStudy,
+            data.fieldOfStudy,
+            data.graduationYear,
+            data.cgpa,
+          ],
+        ],
       },
     });
 

@@ -27,7 +27,7 @@ const LegalProcess: FC<LegalProcessProps> = ({ slice }) => {
         <div className="grid lg:grid-cols-2 gap-x-8 pt-8">
           {/* Description */}
           <div className="flex flex-col space-y-4">
-            <div className="max-w-[46rem]">
+            <div className="w-full lg:max-w-[30rem]">
               <p className="text-lg">{slice.primary.description}</p>
             </div>
 
@@ -46,7 +46,7 @@ const LegalProcess: FC<LegalProcessProps> = ({ slice }) => {
             {slice.primary.process.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col space-y-4 max-w-[46rem] py-4"
+                className="flex flex-col space-y-4 w-full lg:max-w-[30rem] py-4"
               >
                 <div className="w-[fit-content] flex items-center bg-green text-white px-4 py-1 rounded-full space-x-2">
                   <span className="text-[0.875rem] font-bold">

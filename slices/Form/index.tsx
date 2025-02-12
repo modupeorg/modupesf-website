@@ -24,7 +24,7 @@ const Form: FC<FormProps> = ({ slice }) => {
             <h1 className="text-4xl md:text-7xl font-bold">
               {slice.primary.title}
             </h1>
-            <p className=" text-[1rem] text-left lg:text-justify">
+            <p className=" text-lg text-justify hyphens-auto" lang="en">
               {slice.primary.description}
             </p>
           </div>

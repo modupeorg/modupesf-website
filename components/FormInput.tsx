@@ -47,7 +47,7 @@ export function FormInput({
           minLength={minLength}
           maxLength={maxLength}
           autoComplete={name}
-          //   aria-describedby={`${name}-error`}
+          aria-describedby={`${name}-error`}
           className={`
                 w-full
                 py-4

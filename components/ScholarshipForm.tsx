@@ -1,18 +1,22 @@
 "use client";
+import { submitScholarshipForm } from "@/app/scholarships/actions";
 import { ActionResponse } from "@/lib/types";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
-import { submitScholarshipForm } from "@/app/scholarships/actions";
-import { ArrowRight, CircleCheckBig } from "lucide-react";
-import Confetti from "react-confetti";
+import { BadgeTitle } from "./Badge";
 import Button from "./Button";
 import { FormInput } from "./FormInput";
+import { staticBlurDataUrl } from "@/lib/staticBlur";
+
 const initialState: ActionResponse = {
   success: false,
   message: "",
 };
 
 export function ScholarshipForm() {
+  const getBlurSvg = staticBlurDataUrl();
   const [state, action, isPending] = useActionState(
     submitScholarshipForm,
     initialState
@@ -20,6 +24,7 @@ export function ScholarshipForm() {
 
   useEffect(() => {
     if (state.success) {
+      window.scrollTo({ top: 30 });
       toast.success("Your application was successful", {
         classNames: {
           toast: "bg-white text-black border-green shadow-none",
@@ -42,24 +47,44 @@ export function ScholarshipForm() {
 
   if (state.success) {
     return (
-      <>
-        <Confetti
-          recycle={false}
-          numberOfPieces={1000}
-          className="h-full w-full"
-        />
-        <div className="flex flex-col md:pt-28 items-center justify-center space-y-4 text-center">
-          <CircleCheckBig className="bg-green rounded-full text-white p-3 w-16 h-16" />
+      <div className="grid md:grid-cols-2  md:gap-x-4 lg:gap-x-16 gap-y-8 md:pb-16">
+        <div className="relative w-full h-[50dvh] aspect-[16/9] rounded-[1.25rem] overflow-hidden bg-bottom">
+          {/* Text */}
+          <div className="absolute bg-[#173f2c] text-lime py-2 px-4 w-[fit-content] text-center bottom-4 left-4 rounded-lg">
+            <span className="font-bold">Empowering Women</span>
+          </div>
 
-          <h2 className="text-2xl font-semibold">Submission Successful!</h2>
-          <p className="text-gray-600">
+          {/* Image */}
+          <Image
+            src="/images/modupe-sf-scholarships.webp"
+            alt="Scholarship Application"
+            width={1000}
+            height={500}
+            className="object-cover size-full object-[center_27%]"
+            priority
+            placeholder="blur"
+            blurDataURL={getBlurSvg}
+          />
+        </div>
+
+        {/* TextBlock */}
+        <div className="flex flex-col justify-center items-center gap-y-16 h-[50dvh] border border-green bg-[#f4faef] text-center rounded-[1.25rem] py-8 px-4 relative">
+          <div className="absolute rounded-[1.25rem] bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:20px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+
+          <BadgeTitle text="Scholarship Application" />
+          <h2 className="text-4xl lg:text-6xl font-semibold">
+            Thank you for your submission
+          </h2>
+          <p className="text-lg w-full max-w-[30rem]">
             {state.message ||
-              "Your scholarship form has been submitted successfully."}
+              "Your scholarship application has been submitted successfully. You will be notified if its successful."}
           </p>
         </div>
-      </>
+      </div>
     );
   }
+
+  console.log(state.inputs);
 
   return (
     <form action={action}>
@@ -92,9 +117,23 @@ export function ScholarshipForm() {
           defaultValue={state?.inputs?.lastName}
         />
 
-        {/* Email */}
+        {/* Date of Birth */}
         <FormInput
           questionNumber="03"
+          id="dob"
+          name="dob"
+          type="text"
+          label="What is your date of birth?"
+          placeholder="e.g 22/01/2000"
+          state={state}
+          minLength={1}
+          maxLength={100}
+          defaultValue={state?.inputs?.dob}
+        />
+
+        {/* Email */}
+        <FormInput
+          questionNumber="04"
           id="email"
           name="email"
           type="email"
@@ -106,16 +145,101 @@ export function ScholarshipForm() {
 
         {/* Phone Number */}
         <FormInput
-          questionNumber="04"
+          questionNumber="05"
           id="phoneNumber"
           name="phoneNumber"
           type="number"
           label="What is your phone number?"
-          placeholder="08037365356"
+          placeholder="e.g 08037365356"
           state={state}
           defaultValue={state?.inputs?.phoneNumber}
         />
+
+        {/* Home Address */}
+        <FormInput
+          questionNumber="06"
+          id="homeAddress"
+          name="homeAddress"
+          type="text"
+          label="What is your home address?"
+          placeholder="e.g 324 Ketu Lagos"
+          state={state}
+          defaultValue={state?.inputs?.homeAddress}
+        />
+
+        {/* State of Residence */}
+        <FormInput
+          questionNumber="07"
+          id="stateOfResidence"
+          name="stateOfResidence"
+          type="text"
+          label="What is your state of residence?"
+          placeholder="e.g Lagos"
+          state={state}
+          defaultValue={state?.inputs?.stateOfResidence}
+        />
+
+        {/* Current University */}
+        <FormInput
+          questionNumber="08"
+          id="currentUniversity"
+          name="currentUniversity"
+          type="text"
+          label="Name of your current university"
+          placeholder="e.g. University of Lagos"
+          state={state}
+          defaultValue={state?.inputs?.currentUniversity}
+        />
+
+        {/* Level of Study */}
+        <FormInput
+          questionNumber="09"
+          id="levelOfStudy"
+          name="levelOfStudy"
+          type="text"
+          label="Current level of study"
+          placeholder="e.g. 100 level"
+          state={state}
+          defaultValue={state?.inputs?.levelOfStudy}
+        />
+
+        {/* Field of Study */}
+        <FormInput
+          questionNumber="10"
+          id="fieldOfStudy"
+          name="fieldOfStudy"
+          type="text"
+          label="Field of Study/Major"
+          placeholder="e.g Biological Sciences"
+          state={state}
+          defaultValue={state?.inputs?.fieldOfStudy}
+        />
+
+        {/* Expected Graduation Year */}
+        <FormInput
+          questionNumber="11"
+          id="graduationYear"
+          name="graduationYear"
+          type="text"
+          label="Expected Graduation Year"
+          placeholder="e.g. 2030"
+          state={state}
+          defaultValue={state?.inputs?.graduationYear}
+        />
+
+        {/* Current CGPA */}
+        <FormInput
+          questionNumber="12"
+          id="cgpa"
+          name="cgpa"
+          type="text"
+          label="Current CGPA"
+          placeholder="e.g. 4.34/5.00"
+          state={state}
+          defaultValue={state?.inputs?.cgpa}
+        />
       </div>
+
       <div className="flex justify-center w-full mx-auto py-16 items-center">
         <Button
           type="submit"

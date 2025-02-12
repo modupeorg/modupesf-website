@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Icons } from "./Icons";
+import { Star } from "lucide-react";
 
 type TextCircleAnimationProps = {
   text: string;
@@ -43,7 +43,7 @@ export default function TextCircleAnimation({ text }: TextCircleAnimationProps) 
             bottom-0 m-auto bg-white text-white rounded-full
              flex items-center justify-center"
         >
-          <Icons.RightArrow className="w-8 h-8 transform -rotate-45" />
+          <Star className="text-green w-8 h-8 transform -rotate-45" />
         </div>
       </div>
     </div>

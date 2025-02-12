@@ -7,6 +7,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { staticBlurDataUrl } from "@/lib/staticBlur";
 import { Icons } from "@/components/Icons";
 import { BadgeTitle } from "@/components/Badge";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 /**
  * Props for `AboutSection`.
@@ -75,7 +76,7 @@ const AboutSection: FC<AboutSectionProps> = ({ slice }) => {
                   className="iconBox bg-lime"
                   onClick={prevSlide}
                 >
-                  <Icons.LeftArrow />
+                  <ArrowLeft />
                 </button>
 
                 <button
@@ -83,7 +84,7 @@ const AboutSection: FC<AboutSectionProps> = ({ slice }) => {
                   className="iconBox bg-lime "
                   onClick={nextSlide}
                 >
-                  <Icons.RightArrow />
+                  <ArrowRight />
                 </button>
               </div>
             </div>
