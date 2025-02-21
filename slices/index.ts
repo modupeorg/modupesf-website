@@ -13,4 +13,5 @@ export const components = {
   legal_hero: dynamic(() => import("./LegalHero")),
   legal_process: dynamic(() => import("./LegalProcess")),
   memorabilia: dynamic(() => import("./Memorabilia")),
+  services_section: dynamic(() => import("./ServicesSection")),
 };

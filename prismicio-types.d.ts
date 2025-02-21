@@ -211,6 +211,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type LegalServicesDocumentDataSlicesSlice =
+  | ServicesSectionSlice
   | AboutSectionSlice
   | LegalHeroSlice
   | LegalProcessSlice;
@@ -1278,6 +1279,108 @@ export type MemorabiliaSlice = prismic.SharedSlice<
   MemorabiliaSliceVariation
 >;
 
+/**
+ * Item in *ServicesSection → Default → Primary → service*
+ */
+export interface ServicesSectionSliceDefaultPrimaryServiceItem {
+  /**
+   * title field in *ServicesSection → Default → Primary → service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_section.default.primary.service[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *ServicesSection → Default → Primary → service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_section.default.primary.service[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ServicesSection → Default → Primary*
+ */
+export interface ServicesSectionSliceDefaultPrimary {
+  /**
+   * title field in *ServicesSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * heading field in *ServicesSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_section.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * description field in *ServicesSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * service field in *ServicesSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_section.default.primary.service[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  service: prismic.GroupField<
+    Simplify<ServicesSectionSliceDefaultPrimaryServiceItem>
+  >;
+}
+
+/**
+ * Default variation for ServicesSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServicesSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServicesSection*
+ */
+type ServicesSectionSliceVariation = ServicesSectionSliceDefault;
+
+/**
+ * ServicesSection Shared Slice
+ *
+ * - **API ID**: `services_section`
+ * - **Description**: ServicesSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesSectionSlice = prismic.SharedSlice<
+  "services_section",
+  ServicesSectionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1358,6 +1461,11 @@ declare module "@prismicio/client" {
       MemorabiliaSliceDefaultPrimary,
       MemorabiliaSliceVariation,
       MemorabiliaSliceDefault,
+      ServicesSectionSlice,
+      ServicesSectionSliceDefaultPrimaryServiceItem,
+      ServicesSectionSliceDefaultPrimary,
+      ServicesSectionSliceVariation,
+      ServicesSectionSliceDefault,
     };
   }
 }

@@ -90,7 +90,7 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
 
               <button
                 type="button"
-                className="iconBox bg-lime "
+                className="iconBox bg-lime"
                 onClick={nextSlide}
               >
                 <ArrowRight />
