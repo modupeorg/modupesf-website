@@ -143,6 +143,8 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | ImageTextRightSlice
+  | ImageTextLeftSlice
   | FaqsSlice
   | DirectorsSectionSlice
   | MemorabiliaSlice
@@ -208,7 +210,10 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type LegalServicesDocumentDataSlicesSlice = LegalProcessSlice;
+type LegalServicesDocumentDataSlicesSlice =
+  | AboutSectionSlice
+  | LegalHeroSlice
+  | LegalProcessSlice;
 
 /**
  * Content for Legal Services documents
@@ -812,6 +817,261 @@ export type HomePageHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImageTextLeft → Default → Primary*
+ */
+export interface ImageTextLeftSliceDefaultPrimary {
+  /**
+   * title field in *ImageTextLeft → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_left.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * heading field in *ImageTextLeft → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_left.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * description field in *ImageTextLeft → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_left.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * image field in *ImageTextLeft → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_left.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * link field in *ImageTextLeft → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_left.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * link text field in *ImageTextLeft → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_left.default.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ImageTextLeft Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextLeftSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageTextLeftSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageTextLeft*
+ */
+type ImageTextLeftSliceVariation = ImageTextLeftSliceDefault;
+
+/**
+ * ImageTextLeft Shared Slice
+ *
+ * - **API ID**: `image_text_left`
+ * - **Description**: ImageTextLeft
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextLeftSlice = prismic.SharedSlice<
+  "image_text_left",
+  ImageTextLeftSliceVariation
+>;
+
+/**
+ * Primary content in *ImageTextRight → Default → Primary*
+ */
+export interface ImageTextRightSliceDefaultPrimary {
+  /**
+   * image field in *ImageTextRight → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_right.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *ImageTextRight → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_right.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * heading field in *ImageTextRight → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_right.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * description field in *ImageTextRight → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_right.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * link field in *ImageTextRight → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_right.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * link text field in *ImageTextRight → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_text_right.default.primary.link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ImageTextRight Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextRightSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageTextRightSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageTextRight*
+ */
+type ImageTextRightSliceVariation = ImageTextRightSliceDefault;
+
+/**
+ * ImageTextRight Shared Slice
+ *
+ * - **API ID**: `image_text_right`
+ * - **Description**: ImageTextRight
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageTextRightSlice = prismic.SharedSlice<
+  "image_text_right",
+  ImageTextRightSliceVariation
+>;
+
+/**
+ * Primary content in *LegalHero → Default → Primary*
+ */
+export interface LegalHeroSliceDefaultPrimary {
+  /**
+   * image field in *LegalHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_hero.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *LegalHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_hero.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *LegalHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_hero.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for LegalHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LegalHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<LegalHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *LegalHero*
+ */
+type LegalHeroSliceVariation = LegalHeroSliceDefault;
+
+/**
+ * LegalHero Shared Slice
+ *
+ * - **API ID**: `legal_hero`
+ * - **Description**: LegalHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LegalHeroSlice = prismic.SharedSlice<
+  "legal_hero",
+  LegalHeroSliceVariation
+>;
+
+/**
  * Item in *LegalProcess → Default → Primary → process*
  */
 export interface LegalProcessSliceDefaultPrimaryProcessItem {
@@ -1077,6 +1337,18 @@ declare module "@prismicio/client" {
       HomePageHeroSliceDefaultPrimary,
       HomePageHeroSliceVariation,
       HomePageHeroSliceDefault,
+      ImageTextLeftSlice,
+      ImageTextLeftSliceDefaultPrimary,
+      ImageTextLeftSliceVariation,
+      ImageTextLeftSliceDefault,
+      ImageTextRightSlice,
+      ImageTextRightSliceDefaultPrimary,
+      ImageTextRightSliceVariation,
+      ImageTextRightSliceDefault,
+      LegalHeroSlice,
+      LegalHeroSliceDefaultPrimary,
+      LegalHeroSliceVariation,
+      LegalHeroSliceDefault,
       LegalProcessSlice,
       LegalProcessSliceDefaultPrimaryProcessItem,
       LegalProcessSliceDefaultPrimary,

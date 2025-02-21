@@ -2,6 +2,7 @@ import { ScholarshipForm } from "@/components/ScholarshipForm";
 import TexCircleAnimation from "@/components/TextCircleAnimation";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { GraduationCap, Star } from "lucide-react";
 import { FC } from "react";
 /**
  * Props for `Form`.
@@ -28,7 +29,9 @@ const Form: FC<FormProps> = ({ slice }) => {
               {slice.primary.description}
             </p>
           </div>
-          <TexCircleAnimation text="Scholarship • Apply now • Women" />
+          <TexCircleAnimation text="Scholarship • Apply now • Women">
+            <GraduationCap className="text-green w-8 h-8" />
+          </TexCircleAnimation>
         </div>
 
         <div className="pt-8">

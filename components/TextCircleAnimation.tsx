@@ -1,13 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 
 type TextCircleAnimationProps = {
   text: string;
+  children: React.ReactNode;
 };
 
-export default function TextCircleAnimation({ text }: TextCircleAnimationProps) {
+export default function TextCircleAnimation({
+  text,
+  children,
+}: TextCircleAnimationProps) {
   return (
     <div className="hidden lg:block overflow-hidden">
       <div className="relative">
@@ -43,7 +46,8 @@ export default function TextCircleAnimation({ text }: TextCircleAnimationProps) 
             bottom-0 m-auto bg-white text-white rounded-full
              flex items-center justify-center"
         >
-          <Star className="text-green w-8 h-8 transform -rotate-45" />
+          {/* <Star className="text-green w-8 h-8 transform -rotate-45" /> */}
+          {children}
         </div>
       </div>
     </div>

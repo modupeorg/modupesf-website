@@ -5,7 +5,7 @@ import { staticBlurDataUrl } from "@/lib/staticBlur";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { FC, useCallback, useState } from "react";
 
 /**
@@ -45,11 +45,16 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
             <h1 className="text-3xl md:text-4xl font-bold text-white">
               {slice.primary.title}
             </h1>
-            <p className="text-white text-[1rem] text-justify hyphens-auto" lang="en">
+            <p
+              className="text-white text-[1rem] text-justify hyphens-auto"
+              lang="en"
+            >
               {slice.primary.content}
             </p>
           </div>
-          <TexCircleAnimation text="Join us in making a lasting legacy" />
+          <TexCircleAnimation text="Join us in making a lasting legacy">
+            <Star className="text-green w-8 h-8 transform -rotate-45"  />
+          </TexCircleAnimation>
         </div>
         <div className="relative overflow-hidden h-[35dvh] md:h-[65dvh] lg:h-[80dvh] rounded-[1.25rem] rounded-br-[0]">
           <div className="w-full h-full rounded-[1.25rem] overflow-hidden">

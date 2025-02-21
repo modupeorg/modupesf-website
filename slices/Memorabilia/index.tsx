@@ -27,7 +27,7 @@ const Memorabilia: FC<MemorabiliaProps> = ({ slice }) => {
       <div className="container">
         <BadgeTitle text={slice.primary.title} />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-8 gap-y-8 py-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-4 xl:gap-x-8 gap-y-8 py-8">
           {/* Image */}
           <div className="flex flex-col xl:h-[33rem] ">
             <PrismicNextImage

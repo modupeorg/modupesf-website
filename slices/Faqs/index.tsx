@@ -58,7 +58,7 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
                     </h3>
                     <Plus
                       className={twMerge(
-                        "bg-lime p-1 rounded-full text-green flex-shrink-0 transition duration-300",
+                        "bg-lime border border-green p-1 rounded-full text-green flex-shrink-0 transition duration-300",
                         selectedIndex === index && "rotate-45"
                       )}
                     />

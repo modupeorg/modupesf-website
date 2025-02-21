@@ -73,7 +73,7 @@ const AboutSection: FC<AboutSectionProps> = ({ slice }) => {
               <div className="flex justify-center items-center space-x-2 about-container">
                 <button
                   type="button"
-                  className="iconBox bg-lime"
+                  className="iconBox bg-lime border border-green"
                   onClick={prevSlide}
                 >
                   <ArrowLeft />
@@ -81,7 +81,7 @@ const AboutSection: FC<AboutSectionProps> = ({ slice }) => {
 
                 <button
                   type="button"
-                  className="iconBox bg-lime "
+                  className="iconBox bg-lime border border-green"
                   onClick={nextSlide}
                 >
                   <ArrowRight />

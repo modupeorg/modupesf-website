@@ -1,8 +1,10 @@
+"use client";
 import React, { useState } from "react";
 import { motion } from "motion/react";
+import { KeyTextField } from "@prismicio/client";
 
 type ButtonProps = {
-  text: string;
+  text: KeyTextField | string;
   type: "submit" | "button";
   disabled?: boolean;
   children?: React.ReactNode;
@@ -14,7 +16,7 @@ function Button({ text, type, disabled, children }: ButtonProps) {
     <button
       type={type}
       disabled={disabled}
-      className="relative flex justify-center items-center cursor-pointer bg-lime rounded-[1.5rem] py-3 px-9 overflow-clip"
+      className="relative flex justify-center items-center cursor-pointer bg-lime rounded-[1.5rem] py-3 px-9 overflow-clip border border-green"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

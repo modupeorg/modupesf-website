@@ -84,8 +84,6 @@ export function ScholarshipForm() {
     );
   }
 
-  console.log(state.inputs);
-
   return (
     <form action={action}>
       <div className="grid lg:grid-cols-2 md:gap-x-16 gap-y-8 md:gap-y-16">
@@ -124,7 +122,7 @@ export function ScholarshipForm() {
           name="dob"
           type="text"
           label="What is your date of birth?"
-          placeholder="e.g 22/01/2000"
+          placeholder="e.g DD/MM/YYYY"
           state={state}
           minLength={1}
           maxLength={100}

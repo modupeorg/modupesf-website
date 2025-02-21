@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "about_section": {
+              "type": "SharedSlice"
+            },
+            "legal_hero": {
+              "type": "SharedSlice"
+            },
             "legal_process": {
               "type": "SharedSlice"
             }
