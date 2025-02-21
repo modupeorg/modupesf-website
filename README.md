@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Social & Restorative Justice Non-Profit Website
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project is a website for a non-profit organization dedicated to empowering the underprivileged through social and restorative justice. The organization provides legal aid, mediation services, and support for young women's education.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Legal Aid & Advocacy** – Assistance for individuals facing injustice or legal challenges.
+- **Restorative Mediation** – Facilitating conflict resolution through dialogue and accountability.
+- **Expungement Services** – Helping individuals clear criminal records for better opportunities.
+- **Scholarship Program** – Financial support for young women pursuing higher education.
+- **Accessibility Support** – Resources and advocacy for the visually impaired.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Frontend:** Tailwind CSS, React, Next.js, Framer Motion
+- **Backend:** Google Sheets
+- **CMS:** pRISMIC
+- **Hosting & Deployment:** Vercel
 
-## Learn More
+## Installation & Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/modupeorg/modupesf-website.git
+   ```
+2. Navigate to the project folder:
+   ```sh
+   cd project-folder
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Run the development server:
+   ```sh
+   npm run dev
+   ```
+5. Run the prismic server:
+   ```sh
+   npm run slicemachine
+   ```
+6. Open the project in your browser at `http://localhost:3000`
+7. Open the PRISMIC in your browser at `http://localhost:9999`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contribution Guidelines
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository and create a new branch.
+2. Make your changes and commit with descriptive messages.
+3. Submit a pull request for review.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open-source under the MIT License.
