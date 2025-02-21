@@ -30,14 +30,11 @@ const ServicesSection: FC<ServicesSectionProps> = ({ slice }) => {
         <div className="flex flex-col items-center space-y-4 lg:space-y-8 w-full lg:max-w-[46rem] text-center mx-auto">
           <BadgeTitle text={slice.primary.title} />
 
-          {/* <h3 className="text-2xl md:text-3xl xl:text-7xl font-bold">
-            {slice.primary.heading}
-          </h3> */}
           <p className="text-lg text-center hyphens-auto" lang="en">
             {slice.primary.description}
           </p>
         </div>
-        <div className="grid lg:grid-cols-3 gap-8 pt-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-4 xl:gap-x-8 pt-16">
           {slice.primary.service.map((item, index) => {
             const IconComponent = iconsArray.get(index);
             return (

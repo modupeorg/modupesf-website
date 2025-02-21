@@ -47,7 +47,7 @@ export function MobileNavMenu() {
         initial="initial"
         animate="open"
         exit="initial"
-        className="flex flex-col items-center justify-center h-full uppercase text-4xl space-y-4 text-white"
+        className="flex flex-col items-center justify-center h-full uppercase text-4xl space-y-8 text-white"
       >
         {navItems.map((item, index) => (
           <div className="overflow-hidden" key={index}>
