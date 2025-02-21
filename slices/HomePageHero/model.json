@@ -1,0 +1,57 @@
+{
+  "id": "home_page_hero",
+  "type": "SharedSlice",
+  "name": "HomePageHero",
+  "description": "HomePageHero",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "Text",
+          "config": {
+            "label": "content",
+            "placeholder": ""
+          }
+        },
+        "carousel": {
+          "type": "Group",
+          "config": {
+            "label": "carousel",
+            "repeat": true,
+            "fields": {
+              "service_name": {
+                "type": "Text",
+                "config": {
+                  "label": "service name",
+                  "placeholder": ""
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

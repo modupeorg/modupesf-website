@@ -1,25 +1,42 @@
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import { Caveat } from "next/font/google";
 
-import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { MenuProvider } from "@/components/Nav/MenuContext";
+import { Navbar } from "@/components/Navbar";
 
-const caveat = Caveat({
-  variable: "--font-caveat",
+const caros = localFont({
+  src: [
+    {
+      path: "../public/fonts/cretype-Caros-Black.otf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/cretype-Caros-ExtraBold.otf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/cretype-Caros-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/cretype-Caros-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/cretype-Caros.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-caros",
   display: "swap",
-  subsets: ["latin"],
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -33,18 +50,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${caros.variable}`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
+        className="font-caros min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-[#f5f7fb] text-black"
+        suppressHydrationWarning={true}
       >
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen overflow-x-hidden m-0 p-0 flex flex-col bg-white text-black`}
-          suppressHydrationWarning={true}
-        >
+        <MenuProvider>
           <Navbar />
           <main className="flex-grow-[1]">{children}</main>
           <Footer />
-        </body>
+          <Toaster />
+        </MenuProvider>
       </body>
     </html>
   );

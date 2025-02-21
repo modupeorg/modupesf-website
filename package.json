@@ -6,22 +6,44 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@arcjet/next": "^1.0.0-beta.2",
+    "@hookform/resolvers": "^3.10.0",
+    "@notionhq/client": "^2.2.15",
+    "@prismicio/client": "^7.15.1",
+    "@prismicio/next": "^2.0.0",
+    "@prismicio/react": "^3.0.0",
+    "@radix-ui/react-label": "^2.1.1",
+    "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-toast": "^1.2.6",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "googleapis": "^144.0.0",
+    "lucide": "^0.474.0",
+    "lucide-react": "^0.474.0",
     "motion": "^12.0.6",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "sonner": "^1.7.4",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@slicemachine/adapter-next": "^0.3.66",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
+    "slice-machine-ui": "^2.12.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

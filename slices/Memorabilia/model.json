@@ -1,0 +1,62 @@
+{
+  "id": "memorabilia",
+  "type": "SharedSlice",
+  "name": "Memorabilia",
+  "description": "Memorabilia",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": ""
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "subtitle1": {
+          "type": "Text",
+          "config": {
+            "label": "subtitle1",
+            "placeholder": ""
+          }
+        },
+        "biography": {
+          "type": "Text",
+          "config": {
+            "label": "biography",
+            "placeholder": ""
+          }
+        },
+        "subtitle2": {
+          "type": "Text",
+          "config": {
+            "label": "subtitle2",
+            "placeholder": ""
+          }
+        },
+        "life_of_service": {
+          "type": "Text",
+          "config": {
+            "label": "life of service",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
