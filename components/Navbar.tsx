@@ -1,14 +1,30 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
-import { useMenu } from "./Nav/MenuContext";
-import { MobileNavMenu } from "./Nav/MobileMenu";
 import { AnimatePresence } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useMenu } from "./Nav/MenuContext";
+import { MobileNavMenu } from "./Nav/MobileMenu";
+
+type NavItem = {
+  label: string;
+  path: string;
+};
+
+const navItems: NavItem[] = [
+  { label: "Who we are", path: "/" },
+  { label: "Scholarships", path: "/scholarships" },
+  { label: "Legal Services", path: "/legal-services" },
+];
 
 export const Navbar = () => {
   const { isOpen, toggleMenu } = useMenu();
+ const pathname = usePathname();
+
+ const isActive = (path: string) => pathname === path;
+
   return (
     <header>
       <nav className="fixed top-0 left-0 w-full h-20 bg-green z-[99]">
@@ -25,7 +41,6 @@ export const Navbar = () => {
               priority
             />
             <span>Modupe Sapiential Foundation</span>
-
           </Link>
           <button
             className="lg:hidden p-2 hover:bg-white/10 rounded-full transition-colors"
@@ -38,22 +53,19 @@ export const Navbar = () => {
               <Menu className="w-8 h-8 text-white" />
             )}
           </button>
-          <div className="hidden lg:flex items-center gap-6 text-white">
-            <Link href="/" className="hover:text-white/80 transition-colors">
-              Who we are
-            </Link>
-            <Link
-              href="/scholarships"
-              className="hover:text-white/80 transition-colors"
-            >
-              Scholarships
-            </Link>
-            <Link
-              href="/legal-services"
-              className="hover:text-white/80 transition-colors"
-            >
-              Legal Services
-            </Link>
+          <div className="hidden lg:flex items-center gap-6 ">
+            {navItems.map((item, index) => (
+              <div className="" key={index}>
+                <Link
+                  href={item.path}
+                  className={`text-white/60 transition-colors
+                    ${isActive(item.path) && "!text-white/100 font-bold"}  
+                    `}
+                >
+                  {item.label}
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
         <hr className="h-[1px] border-white/30" />

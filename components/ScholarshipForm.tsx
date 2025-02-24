@@ -244,7 +244,7 @@ export function ScholarshipForm() {
           disabled={isPending}
           text={isPending ? "Submitting..." : "Submit"}
         >
-          <ArrowRight className="w-4 h-4 text-white" />
+          <ArrowRight className="w-5 h-5" />
         </Button>
       </div>
     </form>
