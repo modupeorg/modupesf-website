@@ -16,13 +16,13 @@ function Button({ text, type, disabled, children }: ButtonProps) {
     <button
       type={type}
       disabled={disabled}
-      className="relative flex justify-center items-center cursor-pointer bg-lime rounded-[1.5rem] py-3 px-9 overflow-clip border border-green"
+      className="relative flex justify-center items-center cursor-pointer bg-lime rounded-[1.5rem] py-3 px-12 overflow-clip border border-green"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.div
         animate={{
-          scale: isHovered ? 45 : 1,
+          scale: isHovered ? 60 : 1,
           backgroundColor: isHovered ? "#042b22" : "#000000",
           color: isHovered ? "#fffeff" : "#000000",
         }}
@@ -30,7 +30,7 @@ function Button({ text, type, disabled, children }: ButtonProps) {
           ease: "easeIn",
           duration: 0.2,
         }}
-        className="w-[6px] h-[6px] bg-black rounded-[50%] absolute left-[1.375rem]"
+        className="w-[6px] h-[6px] bg-green rounded-[50%] absolute left-[1.375rem]"
       ></motion.div>
       <motion.div
         animate={{
@@ -44,8 +44,9 @@ function Button({ text, type, disabled, children }: ButtonProps) {
       <motion.div
         animate={{
           x: isHovered ? 0 : 24,
+          color: isHovered ? "#fffeff" : "#000000",
         }}
-        className="flex items-center absolute right-[0.375rem]"
+        className="flex items-center absolute right-8 pl-2"
       >
         {children}
       </motion.div>

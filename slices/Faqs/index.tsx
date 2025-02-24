@@ -27,7 +27,7 @@ const Faqs: FC<FaqsProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="pt-8 pb-32 md:pt-16"
+      className="pb-32 pt-16"
     >
       <div className="container">
         <BadgeTitle text={slice.primary.title} />

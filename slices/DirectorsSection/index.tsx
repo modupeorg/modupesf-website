@@ -23,7 +23,7 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-8 md:py-16"
+      className="py-16"
     >
       <div className="container">
         <div className="flex flex-col items-center justify-center">
