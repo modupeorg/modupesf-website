@@ -26,8 +26,8 @@ const ImageTextRight: FC<ImageTextRightProps> = ({ slice }) => {
       className="py-16"
     >
       <div className="container">
-        <div className="grid md:grid-cols-2 md:gap-x-4 lg:gap-x-16 gap-y-8">
-          <div className="hidden md:block space-y-4">
+        <div className="grid md:grid-cols-2 md:gap-x-4 lg:gap-x-8 xl:gap-x-16 gap-y-8">
+          <div className="hidden md:block">
             {/* Image */}
             <PrismicNextImage
               field={slice.primary.image}
@@ -39,7 +39,7 @@ const ImageTextRight: FC<ImageTextRightProps> = ({ slice }) => {
             />
           </div>
           {/* Text */}
-          <div className="flex flex-col justify-center space-y-4 lg:space-y-8 w-full lg:max-w-[42rem] order-first lg:order-last">
+          <div className="flex flex-col justify-center space-y-4 lg:space-y-8 w-full lg:max-w-[42rem]">
             <BadgeTitle text={slice.primary.title} />
             {/* Image */}
             <div className="block md:hidden">

@@ -26,7 +26,7 @@ const ImageTextLeft: FC<ImageTextLeftProps> = ({ slice }) => {
       className="py-16"
     >
       <div className="container">
-        <div className="grid md:grid-cols-2 md:gap-x-4 lg::gap-x-16 gap-y-8">
+        <div className="grid md:grid-cols-2 md:gap-x-4 lg:gap-x-8 xl:gap-x-16 gap-y-8">
           {/* Text */}
           <div className="flex flex-col justify-center space-y-4 lg:space-y-8 w-full lg:max-w-[40rem]">
             <BadgeTitle text={slice.primary.title} />
