@@ -38,8 +38,8 @@
 							[
 								"link",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "3085ba1f-ef4d-4836-8c3c-1b0e21f17b70",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "ExternalLink",
 										"url": "https://prismic.io"
@@ -51,6 +51,14 @@
 								{
 									"__TYPE__": "FieldContent",
 									"value": "mysterious",
+									"type": "Text"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "lonely",
 									"type": "Text"
 								}
 							]

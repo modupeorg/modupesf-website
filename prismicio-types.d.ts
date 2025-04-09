@@ -608,6 +608,16 @@ export interface DirectorsSectionSliceDefaultPrimaryDirectorsItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
+
+  /**
+   * title field in *DirectorsSection → Default → Primary → directors*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directors_section.default.primary.directors[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
 }
 
 /**

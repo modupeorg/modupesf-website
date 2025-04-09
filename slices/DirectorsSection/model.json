@@ -57,6 +57,13 @@
                   "label": "name",
                   "placeholder": ""
                 }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
               }
             }
           }

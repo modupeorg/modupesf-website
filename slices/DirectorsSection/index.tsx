@@ -30,7 +30,10 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
           <BadgeTitle text={slice.primary.title} />
 
           <div className="max-w-[46rem] pt-8">
-            <p className="text-lg hyphens-auto text-justify md:text-center" lang="en">
+            <p
+              className="text-lg hyphens-auto text-justify md:text-center"
+              lang="en"
+            >
               {slice.primary.description}
             </p>
           </div>
@@ -65,6 +68,7 @@ const DirectorsSection: FC<DirectorsSectionProps> = ({ slice }) => {
 
               <div className="py-4">
                 <p className="text-center text-xl font-bold">{item.name}</p>
+                <p className="text-center text-[1rem] font-medium text-black/50">{item.title}</p>
               </div>
             </div>
           ))}
