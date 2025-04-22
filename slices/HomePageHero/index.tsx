@@ -5,7 +5,7 @@ import { staticBlurDataUrl } from "@/lib/staticBlur";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
-import { Star } from "lucide-react";
+import Image from "next/image";
 import { FC } from "react";
 
 /**
@@ -39,7 +39,13 @@ const HomePageHero: FC<HomePageHeroProps> = ({ slice }) => {
             </p>
           </div>
           <TexCircleAnimation text="Join us in making a lasting legacy">
-            <Star className="text-green w-8 h-8 transform -rotate-45" />
+            <Image
+              src="/images/msf-logo.png"
+              alt="Msf-logo"
+              width={50}
+              height={50}
+              priority
+            />
           </TexCircleAnimation>
         </div>
         <div className="relative overflow-hidden h-[35dvh] md:h-[65dvh] lg:h-[80dvh] rounded-[1.25rem] border-white border">

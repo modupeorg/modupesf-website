@@ -27,19 +27,21 @@ export const Navbar = () => {
 
   return (
     <header>
-      <nav className="fixed top-0 left-0 w-full h-20 bg-green z-[99]">
+      <nav className="fixed top-0 left-0 w-full h-24 bg-green z-[99]">
         <div className="container flex items-center justify-between h-full px-4">
           <Link
             href="/"
             className="flex flex-row space-x-4 items-center text-[1rem] md:text-2xl font-bold text-white hover:opacity-90 transition-opacity"
           >
-            <Image
-              src="/images/msf-logo.png"
-              alt="Msf-logo"
-              width={50}
-              height={50}
-              priority
-            />
+            <div className="bg-white rounded-full">
+              <Image
+                src="/images/msf-logo.png"
+                alt="Msf-logo"
+                width={80}
+                height={80}
+                priority
+              />
+            </div>
             <span>Modupe Sapiential Foundation</span>
           </Link>
           <button
