@@ -16,7 +16,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: "Who we are", path: "/" },
   { label: "Scholarships", path: "/scholarships" },
-  { label: "Legal Services", path: "/legal-services" },
+  { label: "Legal Aid", path: "/legal-aid" },
 ];
 
 export const Navbar = () => {

@@ -40,24 +40,6 @@
             "label": "description",
             "placeholder": ""
           }
-        },
-        "link": {
-          "type": "Link",
-          "config": {
-            "label": "link",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": false,
-            "repeat": false
-          }
-        },
-        "link_text": {
-          "type": "Text",
-          "config": {
-            "label": "link text",
-            "placeholder": ""
-          }
         }
       },
       "items": {}

@@ -58,12 +58,6 @@ const ImageTextRight: FC<ImageTextRightProps> = ({ slice }) => {
             <p className="text-lg text-justify hyphens-auto" lang="en">
               {slice.primary.description}
             </p>
-
-            <PrismicNextLink field={slice.primary.link}>
-              <Button type="submit" text={slice.primary.link_text}>
-                <ArrowRight className="w-5 h-5 " />
-              </Button>
-            </PrismicNextLink>
           </div>
         </div>
       </div>

@@ -63,6 +63,24 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "btn_text": {
+          "type": "Text",
+          "config": {
+            "label": "btn text",
+            "placeholder": ""
+          }
+        },
+        "btn_link": {
+          "type": "Link",
+          "config": {
+            "label": "btn link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": false,
+            "repeat": false
+          }
         }
       },
       "items": {}

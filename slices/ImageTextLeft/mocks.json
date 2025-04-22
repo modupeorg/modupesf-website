@@ -40,19 +40,6 @@
 				"__TYPE__": "FieldContent",
 				"value": "soil",
 				"type": "Text"
-			},
-			"link": {
-				"key": "e4da1568-bd59-4bba-9ddf-7be0013c5818",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
-			},
-			"link_text": {
-				"__TYPE__": "FieldContent",
-				"value": "lesson",
-				"type": "Text"
 			}
 		},
 		"items": []

@@ -26,28 +26,12 @@
             "placeholder": ""
           }
         },
-        "carousel": {
-          "type": "Group",
+        "hero_image": {
+          "type": "Image",
           "config": {
-            "label": "carousel",
-            "repeat": true,
-            "fields": {
-              "service_name": {
-                "type": "Text",
-                "config": {
-                  "label": "service name",
-                  "placeholder": ""
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              }
-            }
+            "label": "hero image",
+            "constraint": {},
+            "thumbnails": []
           }
         }
       },

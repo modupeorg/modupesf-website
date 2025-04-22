@@ -143,6 +143,8 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | AboutTextImageSlice
+  | AboutImageTextSlice
   | ImageTextRightSlice
   | ImageTextLeftSlice
   | FaqsSlice
@@ -374,6 +376,97 @@ export type AllDocumentTypes =
   | ScholarshipDocument;
 
 /**
+ * Primary content in *AboutImageText → Default → Primary*
+ */
+export interface AboutImageTextSliceDefaultPrimary {
+  /**
+   * image field in *AboutImageText → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_image_text.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * title field in *AboutImageText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_image_text.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *AboutImageText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_image_text.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * btn text field in *AboutImageText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_image_text.default.primary.btn_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  btn_text: prismic.KeyTextField;
+
+  /**
+   * btn link field in *AboutImageText → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_image_text.default.primary.btn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  btn_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for AboutImageText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutImageTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutImageTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutImageText*
+ */
+type AboutImageTextSliceVariation = AboutImageTextSliceDefault;
+
+/**
+ * AboutImageText Shared Slice
+ *
+ * - **API ID**: `about_image_text`
+ * - **Description**: AboutImageText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutImageTextSlice = prismic.SharedSlice<
+  "about_image_text",
+  AboutImageTextSliceVariation
+>;
+
+/**
  * Item in *AboutSection → Default → Primary → carousel*
  */
 export interface AboutSectionSliceDefaultPrimaryCarouselItem {
@@ -473,6 +566,97 @@ type AboutSectionSliceVariation = AboutSectionSliceDefault;
 export type AboutSectionSlice = prismic.SharedSlice<
   "about_section",
   AboutSectionSliceVariation
+>;
+
+/**
+ * Primary content in *AboutTextImage → Default → Primary*
+ */
+export interface AboutTextImageSliceDefaultPrimary {
+  /**
+   * title field in *AboutTextImage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_text_image.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * content field in *AboutTextImage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_text_image.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * image field in *AboutTextImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_text_image.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * btn text field in *AboutTextImage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_text_image.default.primary.btn_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  btn_text: prismic.KeyTextField;
+
+  /**
+   * btn link field in *AboutTextImage → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_text_image.default.primary.btn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  btn_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for AboutTextImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutTextImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutTextImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AboutTextImage*
+ */
+type AboutTextImageSliceVariation = AboutTextImageSliceDefault;
+
+/**
+ * AboutTextImage Shared Slice
+ *
+ * - **API ID**: `about_text_image`
+ * - **Description**: AboutTextImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutTextImageSlice = prismic.SharedSlice<
+  "about_text_image",
+  AboutTextImageSliceVariation
 >;
 
 /**
@@ -837,31 +1021,6 @@ type FormSliceVariation = FormSliceDefault;
 export type FormSlice = prismic.SharedSlice<"form", FormSliceVariation>;
 
 /**
- * Item in *HomePageHero → Default → Primary → carousel*
- */
-export interface HomePageHeroSliceDefaultPrimaryCarouselItem {
-  /**
-   * service name field in *HomePageHero → Default → Primary → carousel*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page_hero.default.primary.carousel[].service_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  service_name: prismic.KeyTextField;
-
-  /**
-   * image field in *HomePageHero → Default → Primary → carousel*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page_hero.default.primary.carousel[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
  * Primary content in *HomePageHero → Default → Primary*
  */
 export interface HomePageHeroSliceDefaultPrimary {
@@ -886,16 +1045,14 @@ export interface HomePageHeroSliceDefaultPrimary {
   content: prismic.KeyTextField;
 
   /**
-   * carousel field in *HomePageHero → Default → Primary*
+   * hero image field in *HomePageHero → Default → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: home_page_hero.default.primary.carousel[]
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **API ID Path**: home_page_hero.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  carousel: prismic.GroupField<
-    Simplify<HomePageHeroSliceDefaultPrimaryCarouselItem>
-  >;
+  hero_image: prismic.ImageField<never>;
 }
 
 /**
@@ -971,26 +1128,6 @@ export interface ImageTextLeftSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
-
-  /**
-   * link field in *ImageTextLeft → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_text_left.default.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * link text field in *ImageTextLeft → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_text_left.default.primary.link_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  link_text: prismic.KeyTextField;
 }
 
 /**
@@ -1066,26 +1203,6 @@ export interface ImageTextRightSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   description: prismic.KeyTextField;
-
-  /**
-   * link field in *ImageTextRight → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_text_right.default.primary.link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * link text field in *ImageTextRight → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: image_text_right.default.primary.link_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  link_text: prismic.KeyTextField;
 }
 
 /**
@@ -1263,6 +1380,32 @@ export interface LegalProcessSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * btn text field in *LegalProcess → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.btn_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  btn_text: prismic.KeyTextField;
+
+  /**
+   * btn link field in *LegalProcess → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: legal_process.default.primary.btn_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  btn_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -1527,11 +1670,19 @@ declare module "@prismicio/client" {
       ScholarshipDocumentData,
       ScholarshipDocumentDataSlicesSlice,
       AllDocumentTypes,
+      AboutImageTextSlice,
+      AboutImageTextSliceDefaultPrimary,
+      AboutImageTextSliceVariation,
+      AboutImageTextSliceDefault,
       AboutSectionSlice,
       AboutSectionSliceDefaultPrimaryCarouselItem,
       AboutSectionSliceDefaultPrimary,
       AboutSectionSliceVariation,
       AboutSectionSliceDefault,
+      AboutTextImageSlice,
+      AboutTextImageSliceDefaultPrimary,
+      AboutTextImageSliceVariation,
+      AboutTextImageSliceDefault,
       CardBlockSlice,
       CardBlockSliceDefaultPrimaryCardsItem,
       CardBlockSliceDefaultPrimary,
@@ -1552,7 +1703,6 @@ declare module "@prismicio/client" {
       FormSliceVariation,
       FormSliceDefault,
       HomePageHeroSlice,
-      HomePageHeroSliceDefaultPrimaryCarouselItem,
       HomePageHeroSliceDefaultPrimary,
       HomePageHeroSliceVariation,
       HomePageHeroSliceDefault,

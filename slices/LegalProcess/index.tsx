@@ -1,9 +1,11 @@
-import { FC } from "react";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
 import { BadgeTitle } from "@/components/Badge";
-import { PrismicNextImage } from "@prismicio/next";
+import Button from "@/components/Button";
 import { staticBlurDataUrl } from "@/lib/staticBlur";
+import { Content } from "@prismicio/client";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { SliceComponentProps } from "@prismicio/react";
+import { ArrowRight } from "lucide-react";
+import { FC } from "react";
 /**
  * Props for `LegalProcess`.
  */
@@ -59,6 +61,11 @@ const LegalProcess: FC<LegalProcessProps> = ({ slice }) => {
                 <p className="text-[1.125rem]">{item.content}</p>
               </div>
             ))}
+            <PrismicNextLink field={slice.primary.btn_link}>
+              <Button type="submit" text={slice.primary.btn_text}>
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </PrismicNextLink>
           </div>
 
           {/* Image */}

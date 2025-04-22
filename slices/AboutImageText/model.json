@@ -1,8 +1,8 @@
 {
-  "id": "image_text_left",
+  "id": "about_image_text",
   "type": "SharedSlice",
-  "name": "ImageTextLeft",
-  "description": "ImageTextLeft",
+  "name": "AboutImageText",
+  "description": "AboutImageText",
   "variations": [
     {
       "id": "default",
@@ -12,6 +12,14 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "title": {
           "type": "Text",
           "config": {
@@ -19,26 +27,29 @@
             "placeholder": ""
           }
         },
-        "heading": {
+        "content": {
           "type": "Text",
           "config": {
-            "label": "heading",
+            "label": "content",
             "placeholder": ""
           }
         },
-        "description": {
+        "btn_text": {
           "type": "Text",
           "config": {
-            "label": "description",
+            "label": "btn text",
             "placeholder": ""
           }
         },
-        "image": {
-          "type": "Image",
+        "btn_link": {
+          "type": "Link",
           "config": {
-            "label": "image",
-            "constraint": {},
-            "thumbnails": []
+            "label": "btn link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": false,
+            "repeat": false
           }
         }
       },

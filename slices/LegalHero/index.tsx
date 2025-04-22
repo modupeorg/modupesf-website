@@ -23,27 +23,7 @@ const LegalHero: FC<LegalHeroProps> = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="py-24 mt-12 md:mt-16 bg-green"
     >
-      {/* <div className="container">
-        <div className="relative">
-          <div className="relative overflow-hidden">
-            <div className="w-full h-full -z-[1] overflow-hidden inset-[0%]">
-              <PrismicNextImage
-                field={slice.primary.image}
-                width={slice.primary.image.dimensions?.width}
-                height={slice.primary.image.dimensions?.height}
-                className="object-contain rounded-[1.25rem]"
-                placeholder="blur"
-                blurDataURL={getBlurSvg}
-              />
-              <div className="absolute bg-gradient-custom h-[50%] inset-[auto_0%_0%] opacity-100 rounded-b-[1.25rem]"></div>
-            </div>
-            <div className="absolute bottom-4 md:bottom-16 left-0 max-w-[12rem] md:max-w-[46rem] px-4 md:px-8  space-y-4 text-white">
-              <h1 className="text-xl md:text-5xl lg:text-7xl">{slice.primary.title}</h1>
-              <p className="hidden md:block">{slice.primary.description}</p>
-            </div>
-          </div>
-        </div>
-      </div> */}
+     
 
       <div className="container">
         <div className="flex justify-between items-center">
@@ -66,7 +46,7 @@ const LegalHero: FC<LegalHeroProps> = ({ slice }) => {
           field={slice.primary.image}
           width={slice.primary.image.dimensions?.width}
           height={slice.primary.image.dimensions?.height}
-          className="object-contain rounded-[1.25rem]"
+          className="object-contain rounded-[1.25rem] border border-white"
           placeholder="blur"
           blurDataURL={getBlurSvg}
         />

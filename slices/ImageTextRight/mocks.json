@@ -40,19 +40,6 @@
 				"__TYPE__": "FieldContent",
 				"value": "lack",
 				"type": "Text"
-			},
-			"link": {
-				"key": "c8d34182-df65-4842-b860-10dd76bf1924",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io"
-				}
-			},
-			"link_text": {
-				"__TYPE__": "FieldContent",
-				"value": "closer",
-				"type": "Text"
 			}
 		},
 		"items": []
