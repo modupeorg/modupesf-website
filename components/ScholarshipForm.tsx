@@ -9,6 +9,7 @@ import { BadgeTitle } from "./Badge";
 import Button from "./Button";
 import { FormInput } from "./FormInput";
 import { staticBlurDataUrl } from "@/lib/staticBlur";
+import { FormSelect } from "./FormSelect";
 
 const initialState: ActionResponse = {
   success: false,
@@ -178,13 +179,12 @@ export function ScholarshipForm() {
         />
 
         {/* Current University */}
-        <FormInput
-          questionNumber="08"
+        <FormSelect
           id="currentUniversity"
+          questionNumber="08"
           name="currentUniversity"
-          type="text"
           label="Name of your current university"
-          placeholder="e.g. University of Lagos"
+          placeholder="Select a university"
           state={state}
           defaultValue={state?.inputs?.currentUniversity}
         />
