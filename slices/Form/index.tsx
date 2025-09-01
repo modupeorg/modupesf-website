@@ -2,7 +2,7 @@ import { ScholarshipForm } from "@/components/ScholarshipForm";
 import TexCircleAnimation from "@/components/TextCircleAnimation";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { GraduationCap, Star } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { FC } from "react";
 /**
  * Props for `Form`.
